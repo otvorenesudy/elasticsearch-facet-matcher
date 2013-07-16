@@ -11,10 +11,13 @@ task :clean do
 end
 
 task :package do
+  cd './bin'
+
   objects = FileList['**/*.class']
 
-  sh "jar cf ./bin/elasticsearch-facet-matcher.jar #{objects.collect {|s| "'#{s}'" }.join(' ')}"
-  sh "cp ./bin/elasticsearch-facet-matcher.jar ../lib/"
+  sh "jar cf elasticsearch-facet-matcher.jar #{objects.collect {|s| "'#{s}'" }.join(' ')}"
+
+  sh "cp elasticsearch-facet-matcher.jar ../../lib/"
 end
 
 task :build => [:clean, :compile, :package]
