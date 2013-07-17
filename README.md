@@ -24,7 +24,6 @@ cd elasticsearch-facet-matcher
 ```
 script.native:
   facet_matcher.type: sk.opencourts.elasticsearch.FacetMatcherFactory
-
 ```
 
 Note: You can change name of the `facet_matcher` to any name you desire.
