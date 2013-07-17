@@ -1,25 +1,25 @@
-Elasticsearch Facet Matcher
+ElasticSearch Facet Matcher
 ===========================
 
 Native script for matching facet values against specified query.
 
-It's maily supposed to be used as a validation tool for facet values when suggesting facet on array field, since you might get values that match your query along with other values in array field.
-It's pretty dump right now, it check if facet term contains the query. We plan to include more advanced options with usage of Lucene query.
+It's maily supposed to be used as a validation tool for facet values when suggesting facet on array field, since you might get values that match your query along with other values in that array field.
+It's pretty simple right now, it checks if facet term contains the query. We plan to include more advanced options with usage of Lucene query.
 
 ## Installation
 
-1. Clone the repository in elasticsearch root
+1. Clone the repository in ElasticSearch root
 
 ```
-cd elasticsearch-0.90.2
+cd /usr/share/elasticsearch
 git clone https://github.com/otvorenesudy/elasticsearch-facet-matcher.git
 cd elasticsearch-facet-matcher
 ```
 
-2. Open `Rakefile` and change required libraries verions of `elasticsearch`, `lucene-core` and `lucene-analyzer-common` according to one locates in your elasticsearch `lib` directory.
+2. Open `Rakefile` and change required libraries verions of `elasticsearch`, `lucene-core` and `lucene-analyzer-common` according to the ones located in your ElasticSearch `lib` directory.
 3. Run `rake build`
-4. Build copies `elasticsearch-facet-matcher.jar` to your elasticsearch `lib` dir for autoloading.
-5. Open `config/elasticsearch.yml` and add this to the end of file:
+4. Build copies `elasticsearch-facet-matcher.jar` to your ElasticSearch `lib` directory for autoloading.
+5. Open `config/elasticsearch.yml` and add this to the end of the file:
 
 ```
 script.native:
@@ -27,14 +27,13 @@ script.native:
 
 ```
 
-Note: You can change name of `facet_matcher` to any name you desire.
+Note: You can change name of the `facet_matcher` to any name you desire.
 
-Restart elasticsearch and try it out.
-
+Restart ElasticSearch and try it out.
 
 ## Example
 
-This searches for any value in faceted field `judges.untouched` matching pattern 'peter*' by lucene query and validates each facet value by the same query in script.
+This searches for any value in faceted field `judges.untouched` matching pattern 'peter*' by Lucene query and validates each facet value by the same query in the script.
 
 ```json
 {
@@ -91,7 +90,7 @@ This searches for any value in faceted field `judges.untouched` matching pattern
 
 ### This code is free to use under the terms of the MIT license.
 
-Copyright (c) 2013 Samuel Molnár
+Copyright (c) 2013 Samuel Molnár, Pavol Zbell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
