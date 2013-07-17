@@ -24,9 +24,9 @@ public class FacetMatcherScript extends AbstractSearchScript {
         else {
           return null;
         }
-	}
+    }
 
-	@Override
+    @Override
 	public void setNextVar(String name, Object value) {
 		if (name.equals("term")) {
 			term = (String) value;
