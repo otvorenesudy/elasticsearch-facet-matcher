@@ -8,7 +8,7 @@ It's pretty simple right now, it checks if facet term contains the query. We pla
 
 ## Installation
 
-1. Clone the repository in ElasticSearch root
+1. Clone the repository in ElasticSearch root:
 
 ```
 cd /usr/share/elasticsearch
