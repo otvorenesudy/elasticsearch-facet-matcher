@@ -19,7 +19,7 @@ cd elasticsearch-facet-matcher
 2. Open `Rakefile` and change required libraries verions of `elasticsearch`, `lucene-core` and `lucene-analyzer-common` according to the ones located in your ElasticSearch `lib` directory.
 3. Run `rake build`
 4. Build copies `elasticsearch-facet-matcher.jar` to your ElasticSearch `lib` directory for autoloading.
-5. Open `config/elasticsearch.yml` and add this to the end of the file:
+5. Open `/etc/elasticsearch/elasticsearch.yml` or `config/elasticsearch.yml` and add this to the end of the file:
 
 ```
 script.native:
