@@ -7,8 +7,9 @@ import org.elasticsearch.script.AbstractSearchScript;
 
 public final class FacetMatcherScript extends AbstractSearchScript
 {
-	private final String term;
 	private final String query;
+
+    private String term;
 
 	public FacetMatcherScript(final @Nullable Map<String, Object> parameters)
 	{

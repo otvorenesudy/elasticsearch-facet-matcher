@@ -5,3 +5,5 @@
 
 *.class
 
+bin/*.jar
+
