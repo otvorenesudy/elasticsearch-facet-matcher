@@ -27,9 +27,9 @@ script.native:
 
 ```
 
-You can change name of `facet_matcher` to any name you desire.
+Note: You can change name of `facet_matcher` to any name you desire.
 
-6. Restart elasticsearch and try it out.
+Restart elasticsearch and try it out.
 
 
 ## Example
@@ -37,8 +37,6 @@ You can change name of `facet_matcher` to any name you desire.
 This searches for any value in faceted field `judges.untouched` matching pattern 'peter*' by lucene query and validates each facet value by the same query in script.
 
 ```json
-
-
 {
   "facets": {
     "judges": {
