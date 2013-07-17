@@ -3,7 +3,7 @@ Elasticsearch Facet Matcher
 
 Native script for matching facet values against specified query.
 
-It's maily supposed to use as a validation tool for facet values when suggesting facet on array field, since you might get values that match your query along with other values in array field.
+It's maily supposed to be used as a validation tool for facet values when suggesting facet on array field, since you might get values that match your query along with other values in array field.
 It's pretty dump right now, it check if facet term contains the query. We plan to include more advanced options with usage of Lucene query.
 
 ## Installation
