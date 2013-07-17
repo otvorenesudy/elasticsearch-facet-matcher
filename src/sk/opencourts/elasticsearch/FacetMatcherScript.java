@@ -9,25 +9,23 @@ public class FacetMatcherScript extends AbstractSearchScript {
 
 	private String   term;
 	private String   query;
-	
+
 	public FacetMatcherScript(@Nullable Map<String, Object> params) {
 		query = (String) params.get("query");
 	}
 
 	@Override
 	public Object run() {
-		String   value   = analyzeString(term);
-		String[] queries = tokenizeString(analyzeString(query));
-		
-		for(String q : queries) {
-			if (!value.contains(q)) {
-				return null;
-			}
-		}
-		
-		return term;
+		String value = analyzeString(term);
+
+        if (value.contains(analyzeString(query))) {
+          return term;
+        }
+        else {
+          return null;
+        }
 	}
-	
+
 	@Override
 	public void setNextVar(String name, Object value) {
 		if (name.equals("term")) {
@@ -37,12 +35,8 @@ public class FacetMatcherScript extends AbstractSearchScript {
 			super.setNextVar(name, value);
 		}
 	}
-	
+
 	private String analyzeString(String s) {
 		return StringUtils.unaccent(s).toLowerCase();
-	}
-	
-	private String[] tokenizeString(String s) {
-		return StringUtils.tokenize(s);
 	}
 }
