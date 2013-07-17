@@ -1,4 +1,7 @@
+.classpath
+.project
 .settings
 .tags
+
 *.class
 

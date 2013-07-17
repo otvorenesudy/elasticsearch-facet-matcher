@@ -21,3 +21,4 @@ task :package do
 end
 
 task :build => [:clean, :compile, :package]
+

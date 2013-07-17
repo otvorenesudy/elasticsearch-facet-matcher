@@ -6,11 +6,12 @@ import org.elasticsearch.common.Nullable;
 import org.elasticsearch.script.ExecutableScript;
 import org.elasticsearch.script.NativeScriptFactory;
 
-public class FacetMatcherFactory implements NativeScriptFactory {
-
+public final class FacetMatcherFactory implements NativeScriptFactory
+{
 	@Override
-	public ExecutableScript newScript(@Nullable Map<String, Object> params) {
-		return new FacetMatcherScript(params);
+	public final ExecutableScript newScript(final @Nullable Map<String, Object> parameters)
+	{
+		return new FacetMatcherScript(parameters);
 	}
 
 }

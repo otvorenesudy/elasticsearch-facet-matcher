@@ -5,38 +5,44 @@ import java.util.Map;
 import org.elasticsearch.common.Nullable;
 import org.elasticsearch.script.AbstractSearchScript;
 
-public class FacetMatcherScript extends AbstractSearchScript {
+public final class FacetMatcherScript extends AbstractSearchScript
+{
+	private final String term;
+	private final String query;
 
-	private String   term;
-	private String   query;
+	public FacetMatcherScript(final @Nullable Map<String, Object> parameters)
+	{
+		this.query = (String) parameters.get("query");
+	}
 
-	public FacetMatcherScript(@Nullable Map<String, Object> params) {
-		query = (String) params.get("query");
+	private static final String analyze(final String s)
+	{
+		return Strings.unaccent(s).toLowerCase();
 	}
 
 	@Override
-	public Object run() {
-		String value = analyzeString(term);
+	public final Object run()
+	{
+		String value = analyze(this.term);
 
-        if (value.contains(analyzeString(query))) {
-          return term;
-        }
-        else {
-          return null;
-        }
-    }
+		if (value.contains(analyze(this.query)))
+		{
+			return this.term;
+		}
 
-    @Override
-	public void setNextVar(String name, Object value) {
-		if (name.equals("term")) {
-			term = (String) value;
-		}
-		else {
-			super.setNextVar(name, value);
-		}
+		return null;
 	}
 
-	private String analyzeString(String s) {
-		return StringUtils.unaccent(s).toLowerCase();
+	@Override
+	public final void setNextVar(final String name, final Object value)
+	{
+		if (name.equals("term"))
+		{
+			this.term = value.toString();
+		}
+		else
+		{
+			super.setNextVar(name, value);
+		}
 	}
 }
