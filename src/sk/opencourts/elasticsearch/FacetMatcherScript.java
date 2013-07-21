@@ -9,7 +9,7 @@ public final class FacetMatcherScript extends AbstractSearchScript
 {
 	private final String query;
 
-    private String term;
+	private String term;
 
 	public FacetMatcherScript(final @Nullable Map<String, Object> parameters)
 	{
