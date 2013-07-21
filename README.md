@@ -11,7 +11,7 @@ It's pretty simple right now, it checks if facet term contains the query. We pla
 1. Clone the repository in ElasticSearch root:
 
 ```
-cd /usr/share/elasticsearch
+cd /usr/share/elasticsearch # or cd elasticsearch-VERSION
 git clone https://github.com/otvorenesudy/elasticsearch-facet-matcher.git
 cd elasticsearch-facet-matcher
 ```
